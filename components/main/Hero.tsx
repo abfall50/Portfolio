@@ -46,9 +46,10 @@ function Hero({}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{ x: 500, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        initial={{ x: 200, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
         className="w-[90%] h-4/6 flex flex-col justify-center items-center gap-14 md:w-3/5 md:gap-8"
       >
         <span className="text-secondary text-xl md:text-5xl text-center">
