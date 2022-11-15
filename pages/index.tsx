@@ -5,17 +5,17 @@ import Main from "../components/Main";
 
 export default function Home() {
   return (
-    <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-scroll">
-      <Head>
-        <title>Abdoulaye's Portfolio</title>
-      </Head>
+      <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-scroll">
+        <Head>
+          <title>Abdoulaye's Portfolio</title>
+        </Head>
 
-      <Header />
+        <Header />
 
-      <Main />
+        <Main />
 
-      <Footer />
-     
-    </div>
+        { /* Problem scroll: h-screen block useScroll() */ }
+        <Footer />
+      </div>
   );
 }
