@@ -25,8 +25,8 @@ function Hero({}: Props) {
   return (
     <div className="h-screen w-screen flex justify-center md:justify-start items-center">
       <motion.div
-        initial={{ x: -500, opacity: 0, scale: 0.5 }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
+        initial={{ y: -500, opacity: 0, scale: 0.5 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
         className="w-2/5 h-4/5 hidden md:block"
       >
@@ -37,9 +37,8 @@ function Hero({}: Props) {
             duration: 2,
             repeat: Infinity,
             repeatType: "reverse",
-            delay: 1.5,
           }}
-          className="w-full h-full flex justify-end items-center"
+          className="w-full h-full flex justify-center items-start"
         >
           <Image src={Character} alt={"Character"} priority />
         </motion.div>

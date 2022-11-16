@@ -13,7 +13,7 @@ function Main({}: Props) {
         <PRE_Hero />
       </section>
 
-      <section id="hero" className="h-screen snap-center">
+      <section id="hero" className="h-screen snap-start">
         <Hero />
       </section>
 
@@ -22,17 +22,17 @@ function Main({}: Props) {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="h-screen snap-center">
+      <section id="skills" className="h-screen snap-start flex items-center">
         <Skills />
       </section>
 
       {/* PROJECTS */}
       {/* CONTACT */}
 
-      <section id="projects" className="h-screen snap-center">
+      <section id="projects" className="h-screen snap-center flex items-center">
         YO
       </section>
-      <section id="contact" className="h-screen snap-center">
+      <section id="contact" className="h-screen snap-center flex items-center">
         YO
       </section>
     </>
