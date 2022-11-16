@@ -19,7 +19,7 @@ function PRE_Hero({}: Props) {
         transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
         className="h-full w-full flex justify-center items-start"
       >
-        <Image src={Character} alt={"Character"} width={300} height={100} />
+        <Image src={Character} alt={"Character"} width={300} height={100} priority />
       </motion.div>
     </motion.div>
   );

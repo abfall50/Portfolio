@@ -41,7 +41,7 @@ function Hero({}: Props) {
           }}
           className="w-full h-full flex justify-end items-center"
         >
-          <Image src={Character} alt={"Character"} />
+          <Image src={Character} alt={"Character"} priority />
         </motion.div>
       </motion.div>
 
@@ -71,9 +71,6 @@ function Hero({}: Props) {
           </Link>
           <Link href={"#projects"}>
             <button className="hero_button">Projects</button>
-          </Link>
-          <Link href={"#contact"}>
-            <button className="hero_button">Contact</button>
           </Link>
         </div>
       </motion.div>

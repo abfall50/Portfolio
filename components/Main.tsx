@@ -1,34 +1,42 @@
-import React from 'react'
-import Hero from './main/Hero'
-import PRE_Hero from './main/PRE_Hero'
+import React from "react";
+import About from "./main/About";
+import Hero from "./main/Hero";
+import PRE_Hero from "./main/PRE_Hero";
+import Skills from "./main/Skills";
 
-type Props = {}
+type Props = {};
 
 function Main({}: Props) {
   return (
-	<>
+    <>
+      <section id="pre-hero" className="h-screen snap-center md:hidden">
+        <PRE_Hero />
+      </section>
 
+      <section id="hero" className="h-screen snap-center">
+        <Hero />
+      </section>
 
-		{ /* PRE-HERO */ }
-		<section id='pre-hero' className='h-screen snap-center md:hidden'>
-			<PRE_Hero />
-		</section>
-		{ /* HERO */ }
+      <section id="about" className="h-screen snap-center flex items-center">
+        <About />
+      </section>
 
-		<section id='hero' className='h-screen snap-center'>
-			<Hero />
-		</section>
+      {/* SKILLS */}
+      <section id="skills" className="h-screen snap-center">
+        <Skills />
+      </section>
 
-		{ /* ABOUT */ }
-		{ /* SKILLS */ }
-		{ /* PROJECTS */ }
-		{ /* CONTACT */ }
-		<section id='' className='h-screen snap-center'>YO</section>
-		<section id='' className='h-screen snap-center'>YO</section>
-		<section id='' className='h-screen snap-center'>YO</section>
-		<section id='' className='h-screen snap-center'>YO</section>
-	</>
-  )
+      {/* PROJECTS */}
+      {/* CONTACT */}
+
+      <section id="projects" className="h-screen snap-center">
+        YO
+      </section>
+      <section id="contact" className="h-screen snap-center">
+        YO
+      </section>
+    </>
+  );
 }
 
-export default Main
+export default Main;
