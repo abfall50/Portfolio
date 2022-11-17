@@ -2,6 +2,7 @@ import React from "react";
 import About from "./main/About";
 import Hero from "./main/Hero";
 import PRE_Hero from "./main/PRE_Hero";
+import Projects from "./main/Projects";
 import Skills from "./main/Skills";
 
 type Props = {};
@@ -27,11 +28,13 @@ function Main({}: Props) {
       </section>
 
       {/* PROJECTS */}
+      <section id="projects" className="h-screen snap-center flex items-center">
+        <Projects />
+      </section>
+
+
       {/* CONTACT */}
 
-      <section id="projects" className="h-screen snap-center flex items-center">
-        YO
-      </section>
       <section id="contact" className="h-screen snap-center flex items-center">
         YO
       </section>

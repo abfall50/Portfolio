@@ -5,7 +5,7 @@ import Main from "../components/Main";
 
 export default function Home() {
   return (
-      <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-scroll">
+      <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-y-scroll overflow-x-hidden">
         <Head>
           <title>Abdoulaye's Portfolio</title>
         </Head>

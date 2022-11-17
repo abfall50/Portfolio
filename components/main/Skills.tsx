@@ -22,20 +22,20 @@ function Skills({}: Props) {
 
       <div className="grid grid-cols-4 gap-5">
         <Skill />
-		<Skill />
-		<Skill />
-		<Skill />
-		<Skill />
-		<Skill />
-		<Skill />
-		<Skill />
-		<Skill fromLeft={true} />
-		<Skill fromLeft={true} />
-		<Skill fromLeft={true}/>
-		<Skill fromLeft={true}/>
-		<Skill fromLeft={true}/>
-		<Skill fromLeft={true}/>
-		<Skill fromLeft={true}/>
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill fromLeft={true} />
+        <Skill fromLeft={true} />
+        <Skill fromLeft={true} />
+        <Skill fromLeft={true} />
+        <Skill fromLeft={true} />
+        <Skill fromLeft={true} />
+        <Skill fromLeft={true} />
       </div>
     </motion.div>
   );
