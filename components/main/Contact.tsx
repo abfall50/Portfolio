@@ -1,9 +1,40 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 type Props = {};
 
+type DataForm = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
 function Contact({}: Props) {
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = handleSubmit(async (dataForm) => {
+    {
+      /*const url = "/api/contact";
+    const res = await fetch(url, {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(dataForm),
+    }).then((response) => response.json());
+
+	reset()
+
+    if (res !== "Success") {
+	  console.log("Error")
+    }
+
+console.log("Success")}*/
+    }
+	window.location.href = `mailto:abdoulaye.fal5@gmail.com?subject=${dataForm.subject}&body=Hi, my name is ${dataForm.name}.%0D%0A%0D%0A${dataForm.message}%0D%0A%0D%0A(${dataForm.email})`
+	reset()
+  });
+
   return (
     <div
       className='h-[99%] relative flex flex-col text-center md:text-left max-w-7xl px-0 md:px-10 mx-auto justify-evenly items-center md:flex-row"
@@ -36,13 +67,39 @@ function Contact({}: Props) {
           </div>
         </div>
 
-        <form className="flex flex-col space-y-2 mx-auto w-fit">
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col space-y-2 mx-auto w-fit"
+        >
           <div className="flex ">
-            <input placeholder="Name" className="contact w-full mr-2" type="text" />
-            <input placeholder="Email" className="contact w-full" type="email" />
+            <input
+              {...register("name")}
+              placeholder="Name"
+              className="contact w-full mr-2"
+              type="text"
+              required
+            />
+            <input
+              {...register("email")}
+              placeholder="Email"
+              className="contact w-full"
+              type="email"
+              required
+            />
           </div>
-          <input placeholder="Subject" className="contact" type="text" />
-          <textarea placeholder="Message" className="contact max-h-28"></textarea>
+          <input
+            {...register("subject")}
+            placeholder="Subject"
+            className="contact"
+            type="text"
+            required
+          />
+          <textarea
+            {...register("message")}
+            placeholder="Message"
+            className="contact max-h-28"
+            required
+          />
           <button
             type="submit"
             className="bg-tertiary px-10 py-5 text-black font-bold text-base rounded-md"
