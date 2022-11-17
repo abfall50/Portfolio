@@ -36,12 +36,10 @@ function Contact({}: Props) {
           </div>
         </div>
 
-		{/* Email input: don't fit the container */}
-
         <form className="flex flex-col space-y-2 mx-auto w-fit">
-          <div className="flex justify-between gap-2">
-            <input placeholder="Name" className="contact" type="text" />
-            <input placeholder="Email" className="contact" type="email" />
+          <div className="flex ">
+            <input placeholder="Name" className="contact w-full mr-2" type="text" />
+            <input placeholder="Email" className="contact w-full" type="email" />
           </div>
           <input placeholder="Subject" className="contact" type="text" />
           <textarea placeholder="Message" className="contact max-h-28"></textarea>
