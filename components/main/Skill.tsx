@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { usePopper } from "react-popper";
-import { useMediaQuery } from "../../utils/hooks";
+import { useMediaQuery } from "../../utils/hooks/media";
 
 type Props = {
   fromLeft?: boolean;
