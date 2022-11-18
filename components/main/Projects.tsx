@@ -19,7 +19,7 @@ function Projects({}: Props) {
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory text-violet12 pt-10">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory text-violet12 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-violet7/80 scrollbar-corner-gray-400/20">
         {projects.map((project, index) => (
           <div
             key={index}
