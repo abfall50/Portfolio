@@ -42,7 +42,7 @@ const onClick = () => setOpen(true); */
         />
       </motion.div>
 
-      <div className="absolute opacity-0 group-hover:bg-white group-hover:opacity-80 rounded-full h-12 w-12 md:w-14 md:h-14 lg:w-16 lg:h-16 hover:scale-110"></div>
+      <div className="absolute opacity-0 group-hover:bg-violet12 group-hover:opacity-80 rounded-full h-12 w-12 md:w-14 md:h-14 lg:w-16 lg:h-16 hover:scale-110"></div>
 
       {/* Open Modal to see experiencies */}
 

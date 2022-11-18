@@ -51,13 +51,13 @@ function Hero({}: Props) {
         viewport={{ once: true }}
         className="w-[90%] h-4/6 flex flex-col justify-center items-center gap-14 md:w-3/5 md:gap-8"
       >
-        <span className="text-secondary text-xl md:text-5xl text-center">
+        <span className="text-violet11 text-xl md:text-5xl text-center">
           {"<  "} {text}
           <Cursor />
           {"  />"}
         </span>
 
-        <h3 className="text-gray-500 text-lg tracking-[20px] uppercase text-center">
+        <h3 className="text-violet12 text-lg tracking-[20px] uppercase text-center">
           Software engineer
         </h3>
 

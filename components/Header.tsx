@@ -1,5 +1,6 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
+import { FaLinkedinIn, FaGithub, FaFileInvoice } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 type Props = {};
@@ -13,8 +14,9 @@ function Header({}: Props) {
         transition={{ duration: 1.5 }}
         className="flex items-center"
       >
-        <SocialIcon network="github" fgColor="gray" bgColor="transparent" />
-        <SocialIcon network="linkedin" fgColor="gray" bgColor="transparent" />
+        <SocialIcon network="github" fgColor="currentColor" bgColor="transparent" className="text-violet12 hover:text-violet11" />
+        <SocialIcon network="linkedin" fgColor="currentColor" bgColor="transparent" className="text-violet12 hover:text-violet11" />
+        
 
         {/* CV Icon in progress */}
 
@@ -26,10 +28,10 @@ function Header({}: Props) {
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
-        className="flex items-center text-gray-400 cursor-pointer group"
+        className="flex items-center cursor-pointer group"
       >
-        <SocialIcon network="email" fgColor="gray" bgColor="transparent" />
-        <span className="uppercase text-gray-400 text-sm hidden md:inline-flex transition-colors duration-300 ease-in-out group-hover:underline group-hover:decoration-[#B3192B]/40 group-hover:decoration-4 underline-offset-4">
+        <SocialIcon network="email" fgColor="currentColor" bgColor="transparent" className="text-violet12 group-hover:text-violet11 transition-colors duration-300 ease-in-out" />
+        <span className="uppercase text-violet12 group-hover:text-violet11 text-sm hidden md:inline-flex transition-colors duration-300 ease-in-out group-hover:underline group-hover:decoration-violet8/60 group-hover:decoration-4 underline-offset-4">
           Get in touch
         </span>
       </motion.div>

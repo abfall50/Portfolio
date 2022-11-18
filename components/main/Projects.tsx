@@ -15,11 +15,11 @@ function Projects({}: Props) {
       transition={{ duration: 1.5 }}
       className="h-[99%] relative flex flex-col text-left max-w-full mx-auto justify-evenly items-center md:flex-row "
     >
-      <h3 className="absolute top-20 uppercase text-tertiary/40 tracking-[20px] font-semibold text-base">
+      <h3 className="absolute top-20 uppercase text-violet11/40 tracking-[20px] font-semibold text-base ">
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory text-secondary pt-10">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory text-violet12 pt-10">
         {projects.map((project, index) => (
           <div
             key={index}
@@ -41,7 +41,7 @@ function Projects({}: Props) {
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center tracking-normal">
-                <span className="underline decoration-tertiary/40">
+                <span className="underline decoration-violet7/60 underline-offset-4">
                   {index + 1} of {projects.length}:
                 </span>{" "}
                 Project name

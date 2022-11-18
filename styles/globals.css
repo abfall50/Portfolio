@@ -4,10 +4,10 @@
 
 @layer components {
   .hero_button {
-    @apply px-6 py-2 text-gray-500 text-xs md:text-sm border border-black rounded-full tracking-widest transition-all hover:border-primary/40 hover:text-primary/40;
+    @apply px-6 py-2 text-violet12 text-xs md:text-sm border border-violet1 rounded-full tracking-widest transition-all hover:border-violet8/40 hover:bg-violet4/40;
   }
 
   .contact {
-    @apply outline-none bg-slate-400/10 rounded-sm border-b border-[#050614] text-gray-500 placeholder:text-gray-500 transition-all focus:border-tertiary/40 focus:text-tertiary/40 hover:border-tertiary/40 py-2 pl-0 md:pl-3
+    @apply outline-none bg-violet4/20 rounded-sm border-b border-violet1/0 text-gray-500 placeholder:text-gray-500 transition-all focus:border-violet8/40 focus:text-violet11/40 hover:border-violet7/40 py-2 pl-0 md:pl-3
   }
 }
