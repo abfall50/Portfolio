@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -31,12 +32,15 @@ function Contact({}: Props) {
 
 console.log("Success")}*/
     }
-	window.location.href = `mailto:abdoulaye.fal5@gmail.com?subject=${dataForm.subject}&body=Hi, my name is ${dataForm.name}.%0D%0A%0D%0A${dataForm.message}%0D%0A%0D%0A(${dataForm.email})`
-	reset()
+    window.location.href = `mailto:abdoulaye.fal5@gmail.com?subject=${dataForm.subject}&body=Hi, my name is ${dataForm.name}.%0D%0A%0D%0A${dataForm.message}%0D%0A%0D%0A(${dataForm.email})`;
+    reset();
   });
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
       className='h-[99%] relative flex flex-col text-center md:text-left max-w-7xl px-0 md:px-10 mx-auto justify-evenly items-center md:flex-row"
     >'
     >
@@ -108,7 +112,7 @@ console.log("Success")}*/
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
