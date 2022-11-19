@@ -1,10 +1,11 @@
 import { GetStaticProps } from "next";
+import { groq } from "next-sanity";
 import Head from "next/head";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
-import { urlFor } from "../sanity";
+import { sanityClient, urlFor } from "../sanity";
 import { fetchPageInfo } from "../utils/fetch/fetchPageInfo";
 import { fetchProjects } from "../utils/fetch/fetchProjects";
 import { fetchSkills } from "../utils/fetch/fetchSkills";
@@ -36,10 +37,26 @@ export default function Home({ pageInfo, projects, skills, socials }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo("en");
+  {
+    /* const pageInfo: PageInfo = await fetchPageInfo("en");
   const projects: Project[] = await fetchProjects("en");
   const skills: Skill[] = await fetchSkills();
-  const socials: Social[] = await fetchSocials();
+const socials: Social[] = await fetchSocials(); */
+  }
+
+  const pageInfo: PageInfo = await sanityClient.fetch(
+    groq`*[_type == "pageInfoEn"][0]`
+  );
+
+  const projects: Project[] = await sanityClient.fetch(
+    groq`*[_type == "projectEn"] { ..., technologies[]-> }`
+  );
+
+  const skills: Skill[] = await sanityClient.fetch(groq`*[_type == "skill"]`);
+
+  const socials: Social[] = await sanityClient.fetch(
+    groq`*[_type == "social"]`
+  );
 
   return {
     props: {
