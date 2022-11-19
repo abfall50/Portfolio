@@ -1,6 +1,6 @@
 export default {
-  name: "pageInfo",
-  title: "PageInfo",
+  name: "pageInfoEn",
+  title: "PageInfoEn",
   type: "document",
   fields: [
     {

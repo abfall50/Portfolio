@@ -34,7 +34,7 @@ export interface PageInfo extends SanityBody {
 	phoneNumber: string
 	email: string
 	address: string
-	profilePic: Image
+	profilPic: Image
 }
 
 export interface Project extends SanityBody {

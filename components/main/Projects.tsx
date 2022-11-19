@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import Project from "../../public/Capture_IpAddressTracker.png";
+import { urlFor } from "../../sanity";
+import { Project } from "../../utils/typings/sanity";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4];
-
+function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -33,31 +34,49 @@ function Projects({}: Props) {
               className="w-56 md:w-80"
             >
               <Image
-                src={Project}
+                src={urlFor(project.image).url()}
                 alt="Project"
                 className="w-full rounded-2xl"
+                width={1920}
+                height={1080}
               />
             </motion.div>
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center tracking-normal">
-                <span className="underline decoration-violet7/60 underline-offset-4">
+                <span className="underline decoration-violet7/60 underline-offset-8">
                   {index + 1} of {projects.length}:
                 </span>{" "}
-                Project name
+                {project.title}
               </h4>
-            </div>
 
-            <p className="text-[10px] text-center md:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              mattis, eros et mollis tincidunt, sapien dui tincidunt lectus,
-              aliquam vehicula felis tellus nec dui. Proin rhoncus dapibus massa
-              molestie volutpat. Pellentesque id turpis sed justo ultricies
-              vehicula. Aliquam viverra lobortis nulla eu vehicula. Mauris et
-              nunc eget erat dictum aliquet sed nec ligula. Nam et lectus
-              tincidunt, tincidunt dui vitae, ultricies neque. Vestibulum
-              hendrerit, leo a finibus facilisis, urna
-            </p>
+              <div className="flex justify-center items-center space-x-5">
+                {projects.map((project, index) => {
+                  return project.technologies.map((technology, index) => {
+                    const selector =
+                      technology.title === "MongoDB" ||
+                      technology.title === "Next Js" ||
+                      technology.title === "Solidity";
+                    return (
+                      <Image
+                        src={urlFor(technology.image).url()}
+                        alt="Technology"
+                        width={1920}
+                        height={1080}
+                        className={
+                          "h-8 w-8 md:h-10 md:w-10" +
+                          (selector ? " rounded-full bg-white" : "")
+                        }
+                      />
+                    );
+                  });
+                })}
+              </div>
+
+              <p className="text-[11px] text-center md:text-sm">
+                {project.summary}
+              </p>
+            </div>
           </div>
         ))}
       </div>

@@ -5,17 +5,21 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
-import pageInfo from './pageInfo'
-import project from './project'
+import pageInfoEn from './pageInfo_en'
+import projectEn from './project_en'
 import skill from './skill'
 import social from './social'
+import pageInfoFr from './pageInfo_fr'
+import projectFr from './project_fr'
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
-    pageInfo,
-    project,
+    pageInfoEn,
+    projectEn,
     skill,
-    social
+    social,
+    pageInfoFr,
+    projectFr,
   ]),
 })

@@ -4,12 +4,15 @@ import Character from "../../public/character.png";
 import { motion } from "framer-motion";
 import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
 import Link from "next/link";
+import { PageInfo } from "../../utils/typings/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function Hero({}: Props) {
+function Hero({ pageInfo }: Props) {
   const words = [
-    "Hi! My name is Abdoulaye",
+    `Hi! My name is ${pageInfo.name}`,
     "I'm a Front-End Developer",
     "And also a Blockchain Developer",
   ];
@@ -26,13 +29,14 @@ function Hero({}: Props) {
     <div className="h-screen w-screen flex justify-center md:justify-start items-center">
       <motion.div
         initial={{ y: -500, opacity: 0, scale: 0.5 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
+        whileInView={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
+        viewport={{once: true}}
         className="w-2/5 h-4/5 hidden md:block"
       >
         <motion.div
           initial={{ y: 0 }}
-          animate={{ y: 200 }}
+          whileInView={{ y: 200 }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -58,7 +62,7 @@ function Hero({}: Props) {
         </span>
 
         <h3 className="text-violet12 text-lg tracking-[20px] uppercase text-center">
-          Software engineer
+          {pageInfo.role}
         </h3>
 
         <div className="w-2/3 flex justify-around items-center">

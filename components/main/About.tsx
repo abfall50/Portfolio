@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import Profil from "../../public/profile_photo.jpeg";
+import { urlFor } from "../../sanity";
+import { PageInfo } from "../../utils/typings/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -24,22 +28,16 @@ function About({}: Props) {
         className="w-40 h-40 mt-20 md:mt-0 md:w-64 md:h-64 xl:w-96 xl:h-96 flex-shrink-0"
       >
         <Image
-          src={Profil}
+          src={urlFor(pageInfo.profilPic).url()}
           alt={"Profil Photo"}
           className="w-full h-full rounded-full object-cover"
+          width={1920}
+          height={1080}
         />
       </motion.div>
       <div className="text-violet12 space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">Here is who I am</h4>
-        <p className="text-sm lg:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-          mattis, eros et mollis tincidunt, sapien dui tincidunt lectus, aliquam
-          vehicula felis tellus nec dui. Proin rhoncus dapibus massa molestie
-          volutpat. Pellentesque id turpis sed justo ultricies vehicula. Aliquam
-          viverra lobortis nulla eu vehicula. Mauris et nunc eget erat dictum
-          aliquet sed nec ligula. Nam et lectus tincidunt, tincidunt dui vitae,
-          ultricies neque. Vestibulum hendrerit, leo a finibus facilisis, urna
-        </p>
+        <p className="text-sm lg:text-base">{pageInfo?.aboutMe}</p>
       </div>
     </motion.div>
   );

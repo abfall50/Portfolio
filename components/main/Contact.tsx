@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { PageInfo } from "../../utils/typings/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo
+};
 
 type DataForm = {
   name: string;
@@ -12,26 +15,10 @@ type DataForm = {
   message: string;
 };
 
-function Contact({}: Props) {
+function Contact({ pageInfo }: Props) {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = handleSubmit(async (dataForm) => {
-    {
-      /*const url = "/api/contact";
-    const res = await fetch(url, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(dataForm),
-    }).then((response) => response.json());
-
-	reset()
-
-    if (res !== "Success") {
-	  console.log("Error")
-    }
-
-console.log("Success")}*/
-    }
     window.location.href = `mailto:abdoulaye.fal5@gmail.com?subject=${dataForm.subject}&body=Hi, my name is ${dataForm.name}.%0D%0A%0D%0A${dataForm.message}%0D%0A%0D%0A(${dataForm.email})`;
     reset();
   });
@@ -51,22 +38,22 @@ console.log("Success")}*/
       <div className="flex flex-col space-y-5 text-violet12 md:space-y-10 pt-10 md:pt-0">
         <h4 className="font-semibold text-center text-xl">
           Want to get to know me a little better?{" "}
-          <span className="underline decoration-tertiary/40">Let's talk</span>
+          <span className="underline decoration-violet8/60 underline-offset-8">Let's talk</span>
         </h4>
 
         <div className="space-y-8">
           <div className="flex justify-center items-center space-x-5">
             <FaPhoneAlt color="#5842c3" className="w-6 h-6 animate-pulse" />
-            <p className="text-sm md:text-base">+33 6 74 27 31 43</p>
+            <p className="text-sm md:text-base">{pageInfo.phoneNumber}</p>
           </div>
           <div className="flex justify-center items-center space-x-5">
             <FaEnvelope color="#5842c3" className="w-6 h-6 animate-pulse" />
-            <p className="text-sm md:text-base">abdoulaye.fal5@gmail.com</p>
+            <p className="text-sm md:text-base">{pageInfo.email}</p>
           </div>
           <div className="flex justify-center items-center space-x-5">
             <FaMapMarkerAlt color="#5842c3" className="w-6 h-6 animate-pulse" />
             <p className="text-sm md:text-base">
-              1, L'Orée du Parc, Le Plessis-Trévise
+              {pageInfo.address}
             </p>
           </div>
         </div>
