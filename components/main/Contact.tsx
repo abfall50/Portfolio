@@ -44,16 +44,16 @@ function Contact({ pageInfo }: Props) {
         <div className="space-y-8">
           <div className="flex justify-center items-center space-x-5">
             <FaPhoneAlt color="#5842c3" className="w-6 h-6 animate-pulse" />
-            <p className="text-sm md:text-base">{pageInfo.phoneNumber}</p>
+            <p className="text-sm md:text-base">{pageInfo?.phoneNumber}</p>
           </div>
           <div className="flex justify-center items-center space-x-5">
             <FaEnvelope color="#5842c3" className="w-6 h-6 animate-pulse" />
-            <p className="text-sm md:text-base">{pageInfo.email}</p>
+            <p className="text-sm md:text-base">{pageInfo?.email}</p>
           </div>
           <div className="flex justify-center items-center space-x-5">
             <FaMapMarkerAlt color="#5842c3" className="w-6 h-6 animate-pulse" />
             <p className="text-sm md:text-base">
-              {pageInfo.address}
+              {pageInfo?.address}
             </p>
           </div>
         </div>

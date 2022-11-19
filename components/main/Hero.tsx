@@ -12,7 +12,7 @@ type Props = {
 
 function Hero({ pageInfo }: Props) {
   const words = [
-    `Hi! My name is ${pageInfo.name}`,
+    `Hi! My name is ${pageInfo?.name}`,
     "I'm a Front-End Developer",
     "And also a Blockchain Developer",
   ];
@@ -62,7 +62,7 @@ function Hero({ pageInfo }: Props) {
         </span>
 
         <h3 className="text-violet12 text-lg tracking-[20px] uppercase text-center">
-          {pageInfo.role}
+          {pageInfo?.role}
         </h3>
 
         <div className="w-2/3 flex justify-around items-center">

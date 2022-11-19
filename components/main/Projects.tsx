@@ -21,7 +21,7 @@ function Projects({ projects }: Props) {
       </h3>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory text-violet12 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-violet7/80 scrollbar-corner-gray-400/20">
-        {projects.map((project, index) => (
+        {projects?.map((project, index) => (
           <div
             key={index}
             className="w-screen h-screen flex-shrink-0 snap-center flex flex-col justify-center items-center space-y-5 p-10 md:p-44"
@@ -34,7 +34,7 @@ function Projects({ projects }: Props) {
               className="w-56 md:w-80"
             >
               <Image
-                src={urlFor(project.image).url()}
+                src={urlFor(project?.image).url()}
                 alt="Project"
                 className="w-full rounded-2xl"
                 width={1920}
@@ -45,21 +45,21 @@ function Projects({ projects }: Props) {
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center tracking-normal">
                 <span className="underline decoration-violet7/60 underline-offset-8">
-                  {index + 1} of {projects.length}:
+                  {index + 1} of {projects?.length}:
                 </span>{" "}
-                {project.title}
+                {project?.title}
               </h4>
 
               <div className="flex justify-center items-center space-x-5">
                 {projects.map((project, index) => {
                   return project.technologies.map((technology, index) => {
                     const selector =
-                      technology.title === "MongoDB" ||
-                      technology.title === "Next Js" ||
-                      technology.title === "Solidity";
+                      technology?.title === "MongoDB" ||
+                      technology?.title === "Next Js" ||
+                      technology?.title === "Solidity";
                     return (
                       <Image
-                        src={urlFor(technology.image).url()}
+                        src={urlFor(technology?.image).url()}
                         alt="Technology"
                         width={1920}
                         height={1080}
@@ -74,7 +74,7 @@ function Projects({ projects }: Props) {
               </div>
 
               <p className="text-[11px] text-center md:text-sm">
-                {project.summary}
+                {project?.summary}
               </p>
             </div>
           </div>

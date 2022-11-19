@@ -20,8 +20,8 @@ function Header({ socials }: Props) {
       >
         {socials.map((social, index) => (
           <SocialIcon
-            key={social._id}
-            url={social.url}
+            key={social?._id}
+            url={social?.url}
             target="_blank"
             fgColor="currentColor"
             bgColor="transparent"

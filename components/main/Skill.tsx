@@ -38,7 +38,7 @@ const onClick = () => setOpen(true); */
       <motion.div className="h-12 w-12 md:w-14 md:h-14 lg:w-16 lg:h-16 hover:scale-110 hover:animate-pulse">
         <Image
           className={"h-full w-full border-0 border-gray-500 object-fill transition duration-300 hover:scale-110" + (background ? " rounded-full bg-white" : "")}
-          src={urlFor(skill.image).url()}
+          src={urlFor(skill?.image).url()}
           alt={"Logo"}
           width={1920}
           height={1080}

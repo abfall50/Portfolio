@@ -28,7 +28,7 @@ function About({ pageInfo }: Props) {
         className="w-40 h-40 mt-20 md:mt-0 md:w-64 md:h-64 xl:w-96 xl:h-96 flex-shrink-0"
       >
         <Image
-          src={urlFor(pageInfo.profilPic).url()}
+          src={urlFor(pageInfo?.profilPic).url()}
           alt={"Profil Photo"}
           className="w-full h-full rounded-full object-cover"
           width={1920}
