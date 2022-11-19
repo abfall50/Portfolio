@@ -5,9 +5,10 @@ import { Skill as SkillType } from "../../utils/typings/sanity";
 
 type Props = {
   skills: SkillType[];
+  width: boolean
 };
 
-function Skills({ skills }: Props) {
+function Skills({ skills, width }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -30,9 +31,9 @@ function Skills({ skills }: Props) {
             skill?.title === "Next Js" ||
             skill?.title === "MongoDB"
           ) {
-            return <Skill key={skill?._id} background={true} skill={skill} />;
+            return <Skill key={skill?._id} width={width} background={true} skill={skill} />;
           } else {
-            return <Skill key={skill?._id} background={false} skill={skill} />;
+            return <Skill key={skill?._id} width={width} background={false} skill={skill} />;
           }
         })}
 
@@ -42,9 +43,9 @@ function Skills({ skills }: Props) {
             skill.title === "Next Js" ||
             skill.title === "MongoDB"
           ) {
-            return <Skill key={skill?._id} background={true} skill={skill} fromLeft={true} />;
+            return <Skill key={skill?._id} width={width} background={true} skill={skill} fromLeft={true} />;
           } else {
-            return <Skill key={skill?._id} background={false} skill={skill} fromLeft={true} />;
+            return <Skill key={skill?._id} width={width} background={false} skill={skill} fromLeft={true} />;
           }
         })}
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "../utils/hooks/media";
 import { PageInfo, Project, Skill } from "../utils/typings/sanity";
 import About from "./main/About";
 import Contact from "./main/Contact";
@@ -14,6 +15,8 @@ type Props = {
 };
 
 function Main({ pageInfo, skills, projects }: Props) {
+  const width = useMediaQuery(768)
+
   return (
     <>
       <section id="pre-hero" className="h-screen snap-center md:hidden">
@@ -29,7 +32,7 @@ function Main({ pageInfo, skills, projects }: Props) {
       </section>
 
       <section id="skills" className="h-screen snap-start flex items-center">
-        <Skills skills={skills} />
+        <Skills skills={skills} width={width} />
       </section>
 
       <section id="projects" className="h-screen snap-start flex items-center">

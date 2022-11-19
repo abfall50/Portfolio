@@ -11,9 +11,10 @@ type Props = {
   fromLeft?: boolean
   skill: Skill
   background: boolean
+  width: boolean
 };
 
-function Skill({ skill, fromLeft, background }: Props) {
+function Skill({ skill, fromLeft, background, width }: Props) {
   {
     /* const [open, setOpen] = useState(false);
 
@@ -22,13 +23,10 @@ function Skill({ skill, fromLeft, background }: Props) {
 const onClick = () => setOpen(true); */
   }
 
-  const width = useMediaQuery(768);
-  console.log(width)
-
   return (
     <motion.div
       initial={{
-        x: fromLeft ? (width ? -25 : -200) : width ? 25 : 200,
+        x: fromLeft ? -100 : 100,
         opacity: 0,
       }}
       whileInView={{ x: 0, opacity: 1 }}
