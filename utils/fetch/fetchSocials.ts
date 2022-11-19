@@ -1,7 +1,7 @@
 import { Social } from "../typings/sanity"
 
 export const fetchSocials = async () => {
-	const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSocials`).then(res => res.json())
+	const data = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/getSocials`).then(res => res.json())
 
 	const socials: Social[] = data.socials
 
