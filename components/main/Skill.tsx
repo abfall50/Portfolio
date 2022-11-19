@@ -8,10 +8,10 @@ import { useMediaQuery } from "../../utils/hooks/media";
 import { Skill } from "../../utils/typings/sanity";
 
 type Props = {
-  fromLeft?: boolean
-  skill: Skill
-  background: boolean
-  width: boolean
+  fromLeft?: boolean;
+  skill: Skill;
+  background: boolean;
+  width: boolean;
 };
 
 function Skill({ skill, fromLeft, background, width }: Props) {
@@ -31,18 +31,21 @@ const onClick = () => setOpen(true); */
       }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ duration: 1 }}
+      viewport={{ once: true }}
       className="group relative flex cursor-pointer"
     >
       <motion.div className="h-12 w-12 md:w-14 md:h-14 lg:w-16 lg:h-16 hover:scale-110 hover:animate-pulse">
         <Image
-          className={"h-full w-full border-0 border-gray-500 object-fill transition duration-300 hover:scale-110" + (background ? " rounded-full bg-white" : "")}
+          className={
+            "h-full w-full border-0 border-gray-500 object-fill transition duration-300 hover:scale-110" +
+            (background ? " rounded-full bg-white" : "")
+          }
           src={urlFor(skill?.image).url()}
           alt={"Logo"}
           width={1920}
           height={1080}
         />
       </motion.div>
-
 
       {/* Open Modal to see experiencies */}
 

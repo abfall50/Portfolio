@@ -59,6 +59,7 @@ function Projects({ projects }: Props) {
                       technology?.title === "Solidity";
                     return (
                       <Image
+                        key={technology._id}
                         src={urlFor(technology?.image).url()}
                         alt="Technology"
                         width={1920}

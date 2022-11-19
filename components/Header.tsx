@@ -4,12 +4,16 @@ import { FaLinkedinIn, FaGithub, FaFileInvoice } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Social } from "../utils/typings/sanity";
 import Link from "next/link";
+import { ReactCountryFlag } from "react-country-flag";
+import { useCountry } from "../utils/context/country";
 
 type Props = {
   socials: Social[];
 };
 
 function Header({ socials }: Props) {
+  const { language, toggle } = useCountry();
+
   return (
     <header className="sticky top-0 p-5 flex flex-rox justify-between items-start max-w-7xl mx-auto z-20 xl-items-center">
       <motion.div
@@ -35,24 +39,37 @@ function Header({ socials }: Props) {
           network="cv"
   />*/}
       </motion.div>
-      <Link href="#contact">
-        <motion.div
-          initial={{ x: 500, opacity: 0, scale: 0.5 }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className="flex items-center cursor-pointer group"
-        >
+      <motion.div
+        initial={{ x: 500, opacity: 0, scale: 0.5 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5 }}
+        className="flex items-center"
+      >
+        <div className="flex items-center cursor-pointer group">
           <SocialIcon
+            href="#contact"
             network="email"
             fgColor="currentColor"
             bgColor="transparent"
             className="text-violet12 group-hover:text-violet11 transition-colors duration-300 ease-in-out"
           />
-          <span className="uppercase text-violet12 group-hover:text-violet11 text-sm hidden md:inline-flex transition-colors duration-300 ease-in-out group-hover:underline group-hover:decoration-violet8/60 group-hover:decoration-4 underline-offset-4">
-            Get in touch
-          </span>
-        </motion.div>
-      </Link>
+          <Link href="#contact">
+            <span className="uppercase text-violet12 group-hover:text-violet11 text-sm hidden md:inline-flex transition-colors duration-300 ease-in-out group-hover:underline group-hover:decoration-violet8/60 group-hover:decoration-4 underline-offset-4">
+              Get in touch
+            </span>
+          </Link>
+        </div>
+        <div className="px-3 md:px-10">
+          <Link href={language === "us" ? "/fr" : "/en"}>
+            <ReactCountryFlag
+              countryCode={language}
+              svg
+              style={{ width: "25px", height: "25px" }}
+              className="hover:scale-110"
+            />
+          </Link>
+        </div>
+      </motion.div>
     </header>
   );
 }

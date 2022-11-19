@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import { sanityClient, urlFor } from "../sanity";
+import { CountryContext } from "../utils/context/country";
 import { fetchPageInfo } from "../utils/fetch/fetchPageInfo";
 import { fetchProjects } from "../utils/fetch/fetchProjects";
 import { fetchSkills } from "../utils/fetch/fetchSkills";
@@ -19,30 +20,37 @@ type Props = {
   socials: Social[];
 };
 
-export default function Home({ pageInfo, projects, skills, socials }: Props) {
+export default function Home_Fr({
+  pageInfo,
+  projects,
+  skills,
+  socials,
+}: Props) {
   return (
-    <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-violet7/80 scrollbar-corner-gray-400/20">
-      <Head>
-        <title>Abdoulaye's Portfolio</title>
-      </Head>
+    <CountryContext.Provider value={{ language: "fr" }}>
+      <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-violet7/80 scrollbar-corner-gray-400/20">
+        <Head>
+          <title>Portfolio d'Abdoulaye</title>
+        </Head>
 
-      <Header socials={socials} />
+        <Header socials={socials} />
 
-      <Main pageInfo={pageInfo} skills={skills} projects={projects} />
+        <Main pageInfo={pageInfo} skills={skills} projects={projects} />
 
-      {/* Problem scroll: h-screen block useScroll() */}
-      <Footer />
-    </div>
+        {/* Problem scroll: h-screen block useScroll() */}
+        <Footer />
+      </div>
+    </CountryContext.Provider>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await sanityClient.fetch(
-    groq`*[_type == "pageInfoEn"][0]`
+    groq`*[_type == "pageInfoFr"][0]`
   );
 
   const projects: Project[] = await sanityClient.fetch(
-    groq`*[_type == "projectEn"] { ..., technologies[]-> }`
+    groq`*[_type == "projectFr"] { ..., technologies[]-> }`
   );
 
   const skills: Skill[] = await sanityClient.fetch(groq`*[_type == "skill"]`);

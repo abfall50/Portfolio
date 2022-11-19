@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
+import { CountryProvider } from "../utils/context/country";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
@@ -18,6 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
   if (typeof window === "undefined") {
     return <></>;
   } else {
-    return <Component {...pageProps} />;
+    return (
+      <CountryProvider>
+        <Component {...pageProps} />
+      </CountryProvider>
+    );
   }
 }
