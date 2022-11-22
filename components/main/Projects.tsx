@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import { urlFor } from "../../sanity";
+import { useCountry } from "../../utils/context/country";
 import { Project } from "../../utils/typings/sanity";
 
 type Props = {
@@ -9,6 +10,8 @@ type Props = {
 };
 
 function Projects({ projects }: Props) {
+  const { language } = useCountry()
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,7 +20,7 @@ function Projects({ projects }: Props) {
       className="h-[99%] relative flex flex-col text-left max-w-full mx-auto justify-evenly items-center md:flex-row "
     >
       <h3 className="absolute top-20 uppercase text-violet11/40 tracking-[20px] font-semibold text-base ">
-        Projects
+        {language === "us" ? "Projects" : "Projets"}
       </h3>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory text-violet12 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-violet7/80 scrollbar-corner-gray-400/20">

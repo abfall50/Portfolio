@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useCountry } from "../../utils/context/country";
 import { PageInfo } from "../../utils/typings/sanity";
 
 type Props = {
-  pageInfo: PageInfo
+  pageInfo: PageInfo;
 };
 
 type DataForm = {
@@ -16,6 +17,7 @@ type DataForm = {
 };
 
 function Contact({ pageInfo }: Props) {
+  const { language } = useCountry();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = handleSubmit(async (dataForm) => {
@@ -37,8 +39,21 @@ function Contact({ pageInfo }: Props) {
 
       <div className="flex flex-col space-y-5 text-violet12 md:space-y-10 pt-10 md:pt-0">
         <h4 className="font-semibold text-center text-xl">
-          Want to get to know me a little better?{" "}
-          <span className="underline decoration-violet8/60 underline-offset-8">Let's talk</span>
+          {language === "us" ? (
+            <>
+              Want to get to know me a little better?{" "}
+              <span className="underline decoration-violet8/60 underline-offset-8">
+                Let's talk
+              </span>
+            </>
+          ) : (
+            <>
+              Envie d'en apprendre plus sur moi?{" "}
+              <span className="underline decoration-violet8/60 underline-offset-8">
+                Parlons-en
+              </span>
+            </>
+          )}
         </h4>
 
         <div className="space-y-8">
@@ -52,9 +67,7 @@ function Contact({ pageInfo }: Props) {
           </div>
           <div className="flex justify-center items-center space-x-5">
             <FaMapMarkerAlt color="#5842c3" className="w-6 h-6 animate-pulse" />
-            <p className="text-sm md:text-base">
-              {pageInfo?.address}
-            </p>
+            <p className="text-sm md:text-base">{pageInfo?.address}</p>
           </div>
         </div>
 
@@ -65,7 +78,7 @@ function Contact({ pageInfo }: Props) {
           <div className="flex ">
             <input
               {...register("name")}
-              placeholder="Name"
+              placeholder={language === "us" ? "Name" : "Nom"}
               className="contact w-full mr-2"
               type="text"
               required
@@ -80,7 +93,7 @@ function Contact({ pageInfo }: Props) {
           </div>
           <input
             {...register("subject")}
-            placeholder="Subject"
+            placeholder={language === "us" ? "Subject" : "Sujet"}
             className="contact"
             type="text"
             required
@@ -95,7 +108,7 @@ function Contact({ pageInfo }: Props) {
             type="submit"
             className="bg-violet5 hover:bg-violet6 focus:bg-violet7 px-10 py-5 text-violet1 font-bold text-base rounded-md"
           >
-            Submit
+            {language === "us" ? "Submit" : "Soumettre"}
           </button>
         </form>
       </div>

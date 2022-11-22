@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import Character from "../../public/character.png";
 import { motion } from "framer-motion";
 import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
 import Link from "next/link";
 import { PageInfo } from "../../utils/typings/sanity";
+import { useCountry } from "../../utils/context/country";
 
 type Props = {
   pageInfo: PageInfo;
 };
 
 function Hero({ pageInfo }: Props) {
-  const words = [
+  const { language } = useCountry();
+
+  let words = [
     `Hi! My name is ${pageInfo?.name}`,
     "I'm a Front-End Developer",
     "And also a Blockchain Developer",
   ];
+
+  if (language === "us") {
+    words = useMemo(
+      () => [`Hi! I am ${pageInfo?.name}`, "I'm a Web Developer"],
+      []
+    );
+  } else {
+    words = useMemo(
+      () => [`Je suis ${pageInfo?.name}`, "Je suis Développeur Web"],
+      []
+    );
+  }
 
   const [text] = useTypewriter({
     words: words,
@@ -31,7 +46,7 @@ function Hero({ pageInfo }: Props) {
         initial={{ y: -500, opacity: 0, scale: 0.5 }}
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
-        viewport={{once: true}}
+        viewport={{ once: true }}
         className="w-2/5 h-4/5 hidden md:block"
       >
         <motion.div
@@ -67,13 +82,13 @@ function Hero({ pageInfo }: Props) {
 
         <div className="w-2/3 flex justify-around items-center">
           <Link href={"#about"}>
-            <button className="hero_button">About</button>
+            <button className="hero_button">{ language === "us" ? "About" : "À propos"}</button>
           </Link>
           <Link href={"#skills"}>
-            <button className="hero_button">Skills</button>
+            <button className="hero_button">{ language === "us" ? "Skills" : "Compétences"}</button>
           </Link>
           <Link href={"#projects"}>
-            <button className="hero_button">Projects</button>
+            <button className="hero_button">{ language === "us" ? "Projects" : "Projets"}</button>
           </Link>
         </div>
       </motion.div>

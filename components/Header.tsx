@@ -12,7 +12,7 @@ type Props = {
 };
 
 function Header({ socials }: Props) {
-  const { language, toggle } = useCountry();
+  const { language } = useCountry();
 
   return (
     <header className="sticky top-0 p-5 flex flex-rox justify-between items-start max-w-7xl mx-auto z-20 xl-items-center">
@@ -55,7 +55,7 @@ function Header({ socials }: Props) {
           />
           <Link href="#contact">
             <span className="uppercase text-violet12 group-hover:text-violet11 text-sm hidden md:inline-flex transition-colors duration-300 ease-in-out group-hover:underline group-hover:decoration-violet8/60 group-hover:decoration-4 underline-offset-4">
-              Get in touch
+              {language === "us" ? "Get in touch" : "Contactez-moi"}
             </span>
           </Link>
         </div>

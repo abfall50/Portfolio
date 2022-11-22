@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Profil from "../../public/profile_photo.jpeg";
 import { urlFor } from "../../sanity";
+import { useCountry } from "../../utils/context/country";
 import { PageInfo } from "../../utils/typings/sanity";
 
 type Props = {
@@ -10,6 +11,8 @@ type Props = {
 };
 
 function About({ pageInfo }: Props) {
+  const { language } = useCountry();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,7 +21,7 @@ function About({ pageInfo }: Props) {
       className="h-[99%] relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 mx-auto justify-evenly items-center"
     >
       <h3 className="absolute top-20 uppercase text-violet11/40 font-semibold tracking-[20px] text-base">
-        About
+        {language === "us" ? "About" : "À propos"}
       </h3>
       <motion.div
         initial={{ x: -200, opacity: 0 }}
