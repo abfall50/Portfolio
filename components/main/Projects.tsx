@@ -19,7 +19,7 @@ function Projects({ projects }: Props) {
       transition={{ duration: 1.5 }}
       className="h-[99%] relative flex flex-col text-left max-w-full mx-auto justify-evenly items-center md:flex-row "
     >
-      <h3 className="absolute top-20 uppercase text-violet11/40 tracking-[20px] font-semibold text-base ">
+      <h3 className="absolute top-20 pl-5 uppercase text-violet11/40 tracking-[20px] font-semibold text-base ">
         {language === "us" ? "Projects" : "Projets"}
       </h3>
 
@@ -34,7 +34,7 @@ function Projects({ projects }: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-56 md:w-80"
+              className="w-56 lg:w-80"
             >
               <Image
                 src={urlFor(project?.image).url()}
@@ -68,7 +68,7 @@ function Projects({ projects }: Props) {
                         width={1920}
                         height={1080}
                         className={
-                          "h-8 w-8 md:h-10 md:w-10" +
+                          "h-8 w-8 lg:h-10 lg:w-10" +
                           (selector ? " rounded-full bg-white" : "")
                         }
                       />
@@ -77,7 +77,7 @@ function Projects({ projects }: Props) {
                 })}
               </div>
 
-              <p className="text-[11px] text-center md:text-sm">
+              <p className="text-[11px] text-center lg:text-sm">
                 {project?.summary}
               </p>
             </div>

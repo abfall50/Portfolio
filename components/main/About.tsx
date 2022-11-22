@@ -20,7 +20,7 @@ function About({ pageInfo }: Props) {
       transition={{ duration: 1.5 }}
       className="h-[99%] relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 mx-auto justify-evenly items-center"
     >
-      <h3 className="absolute top-20 uppercase text-violet11/40 font-semibold tracking-[20px] text-base">
+      <h3 className="absolute top-20 pl-5 uppercase text-violet11/40 font-semibold tracking-[20px] text-base">
         {language === "us" ? "About" : "À propos"}
       </h3>
       <motion.div
