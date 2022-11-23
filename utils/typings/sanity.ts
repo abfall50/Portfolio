@@ -23,6 +23,7 @@ export interface Skill extends SanityBody {
 	_type: "skill"
 	title: string
 	image: Image
+	link: string
 }
 
 

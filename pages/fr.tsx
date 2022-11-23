@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   );
 
   const projects: Project[] = await sanityClient.fetch(
-    groq`*[_type == "projectFr"] { ..., technologies[]-> }`
+    groq`*[_type == "projectFr"] { ..., technologies[]-> } | order(_updatedAt desc)`
   );
 
   const skills: Skill[] = await sanityClient.fetch(groq`*[_type == "skill"]`);

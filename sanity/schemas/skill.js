@@ -14,6 +14,11 @@ export default {
 		type: "image",
 		options: { hotspot: true },
 	  },
+	  {
+		  name: 'link',
+		  title: 'Link',
+		  type: 'string'
+	  }
 	],
   };
   

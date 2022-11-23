@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { urlFor } from "../../sanity";
 import { useCountry } from "../../utils/context/country";
@@ -29,21 +30,23 @@ function Projects({ projects }: Props) {
             key={index}
             className="w-screen h-screen flex-shrink-0 snap-center flex flex-col justify-center items-center space-y-5 p-10 md:p-44"
           >
-            <motion.div
-              initial={{ y: -200, opacity: 0 }}
-              transition={{ duration: 1.2 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              className="w-56 lg:w-80"
-            >
-              <Image
-                src={urlFor(project?.image).url()}
-                alt="Project"
-                className="w-full rounded-2xl"
-                width={1920}
-                height={1080}
-              />
-            </motion.div>
+            <Link href={project.linkToBuild} target="_blank">
+              <motion.div
+                initial={{ y: -200, opacity: 0 }}
+                transition={{ duration: 1.2 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                className="w-56 lg:w-80"
+              >
+                <Image
+                  src={urlFor(project?.image).url()}
+                  alt="Project"
+                  className="w-full rounded-2xl hover:scale-105 transition-all duration-300"
+                  width={1920}
+                  height={1080}
+                />
+              </motion.div>
+            </Link>
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center tracking-normal truncate">
