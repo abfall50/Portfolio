@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import Profil from "../../public/profile_photo.jpeg";
 import { urlFor } from "../../sanity";
 import { useCountry } from "../../utils/context/country";
 import { PageInfo } from "../../utils/typings/sanity";

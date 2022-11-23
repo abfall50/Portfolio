@@ -1,15 +1,9 @@
 import { GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import Head from "next/head";
-import { useEffect } from "react";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
-import { sanityClient, urlFor } from "../sanity";
-import { fetchPageInfo } from "../utils/fetch/fetchPageInfo";
-import { fetchProjects } from "../utils/fetch/fetchProjects";
-import { fetchSkills } from "../utils/fetch/fetchSkills";
-import { fetchSocials } from "../utils/fetch/fetchSocials";
+import { sanityClient } from "../sanity";
 import { PageInfo, Project, Skill, Social } from "../utils/typings/sanity";
 
 type Props = {
@@ -30,8 +24,6 @@ export default function Home({ pageInfo, projects, skills, socials }: Props) {
 
       <Main pageInfo={pageInfo} skills={skills} projects={projects} />
 
-      {/* Problem scroll: h-screen block useScroll() */}
-      <Footer />
     </div>
   );
 }
@@ -42,7 +34,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   );
 
   const projects: Project[] = await sanityClient.fetch(
-    groq`*[_type == "projectEn"] { ..., technologies[]-> }`
+    groq`*[_type == "projectEn"] { ..., technologies[]-> } | order(_createdAt asc)`
   );
 
   const skills: Skill[] = await sanityClient.fetch(groq`*[_type == "skill"]`);

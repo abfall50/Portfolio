@@ -10,7 +10,7 @@ type Props = {
 };
 
 function Projects({ projects }: Props) {
-  const { language } = useCountry()
+  const { language } = useCountry();
 
   return (
     <motion.div
@@ -46,7 +46,7 @@ function Projects({ projects }: Props) {
             </motion.div>
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-2xl md:text-4xl font-semibold text-center tracking-normal">
+              <h4 className="text-2xl md:text-4xl font-semibold text-center tracking-normal truncate">
                 <span className="underline decoration-violet7/60 underline-offset-8">
                   {index + 1} of {projects?.length}:
                 </span>{" "}
@@ -54,26 +54,24 @@ function Projects({ projects }: Props) {
               </h4>
 
               <div className="flex justify-center items-center space-x-5">
-                {projects.map((project, index) => {
-                  return project.technologies.map((technology, index) => {
-                    const selector =
-                      technology?.title === "MongoDB" ||
-                      technology?.title === "Next Js" ||
-                      technology?.title === "Solidity";
-                    return (
-                      <Image
-                        key={technology._id}
-                        src={urlFor(technology?.image).url()}
-                        alt="Technology"
-                        width={1920}
-                        height={1080}
-                        className={
-                          "h-8 w-8 lg:h-10 lg:w-10" +
-                          (selector ? " rounded-full bg-white" : "")
-                        }
-                      />
-                    );
-                  });
+                {project.technologies.map((technology, index) => {
+                  const selector =
+                    technology?.title === "MongoDB" ||
+                    technology?.title === "Next Js" ||
+                    technology?.title === "Solidity";
+                  return (
+                    <Image
+                      key={technology._id}
+                      src={urlFor(technology?.image).url()}
+                      alt="Technology"
+                      width={1920}
+                      height={1080}
+                      className={
+                        "h-8 w-8 lg:h-10 lg:w-10" +
+                        (selector ? " rounded-full bg-white" : "")
+                      }
+                    />
+                  );
                 })}
               </div>
 

@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
-import React from "react";
 import Skill from "./Skill";
 import { Skill as SkillType } from "../../utils/typings/sanity";
 import { useCountry } from "../../utils/context/country";
 
 type Props = {
   skills: SkillType[];
-  width: boolean;
 };
 
-function Skills({ skills, width }: Props) {
+function Skills({ skills }: Props) {
   const { language } = useCountry();
 
   return (
@@ -23,10 +21,6 @@ function Skills({ skills, width }: Props) {
         {language === "us" ? "Skills" : "Compétences"}
       </h3>
 
-      { /* <h3 className="absolute top-28 truncate uppercase text-violet11/40 tracking-[3px] text-[8px] lg:text-xs">
-        Click on skills for current experiences
-  </h3> */}
-
       <div className="grid grid-cols-4 gap-5">
         {skills
           ?.slice(0, Math.round(skills?.length / 2))
@@ -39,7 +33,6 @@ function Skills({ skills, width }: Props) {
               return (
                 <Skill
                   key={skill?._id}
-                  width={width}
                   background={true}
                   skill={skill}
                 />
@@ -48,7 +41,6 @@ function Skills({ skills, width }: Props) {
               return (
                 <Skill
                   key={skill?._id}
-                  width={width}
                   background={false}
                   skill={skill}
                 />
@@ -67,7 +59,6 @@ function Skills({ skills, width }: Props) {
               return (
                 <Skill
                   key={skill?._id}
-                  width={width}
                   background={true}
                   skill={skill}
                   fromLeft={true}
@@ -77,7 +68,6 @@ function Skills({ skills, width }: Props) {
               return (
                 <Skill
                   key={skill?._id}
-                  width={width}
                   background={false}
                   skill={skill}
                   fromLeft={true}

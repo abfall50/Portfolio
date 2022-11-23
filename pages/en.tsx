@@ -1,16 +1,10 @@
 import { GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import Head from "next/head";
-import { useEffect } from "react";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import { sanityClient, urlFor } from "../sanity";
 import { CountryContext } from "../utils/context/country";
-import { fetchPageInfo } from "../utils/fetch/fetchPageInfo";
-import { fetchProjects } from "../utils/fetch/fetchProjects";
-import { fetchSkills } from "../utils/fetch/fetchSkills";
-import { fetchSocials } from "../utils/fetch/fetchSocials";
 import { PageInfo, Project, Skill, Social } from "../utils/typings/sanity";
 
 type Props = {
@@ -36,9 +30,6 @@ export default function Home_En({
         <Header socials={socials} />
 
         <Main pageInfo={pageInfo} skills={skills} projects={projects} />
-
-        {/* Problem scroll: h-screen block useScroll() */}
-        <Footer />
       </div>
     </CountryContext.Provider>
   );

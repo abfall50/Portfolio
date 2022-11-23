@@ -1,6 +1,5 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-import { FaLinkedinIn, FaGithub, FaFileInvoice } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Social } from "../utils/typings/sanity";
 import Link from "next/link";
@@ -32,12 +31,6 @@ function Header({ socials }: Props) {
             className="text-violet12 hover:text-violet11"
           />
         ))}
-
-        {/* CV Icon in progress */}
-
-        {/*<SocialIcon
-          network="cv"
-  />*/}
       </motion.div>
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}

@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import Character from "../../public/character.png";
 import { motion } from "framer-motion";
-import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Link from "next/link";
 import { PageInfo } from "../../utils/typings/sanity";
 import { useCountry } from "../../utils/context/country";
