@@ -30,7 +30,7 @@ function Contact({ pageInfo }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className='h-[99%] relative flex flex-col text-center md:text-left max-w-7xl px-0 md:px-10 mx-auto justify-evenly items-center md:flex-row"
+      className='h-[99%] relative flex flex-col text-center md:text-left max-w-7xl px-10 md:px-10 mx-auto justify-evenly items-center md:flex-row"
     >'
     >
       <h3 className="absolute top-20 pl-5 uppercase text-violet11/40 tracking-[20px] font-semibold text-base anima">
@@ -79,14 +79,14 @@ function Contact({ pageInfo }: Props) {
             <input
               {...register("name")}
               placeholder={language === "us" ? "Name" : "Nom"}
-              className="contact w-full mr-2"
+              className="contact w-full mr-2 px-2"
               type="text"
               required
             />
             <input
               {...register("email")}
               placeholder="Email"
-              className="contact w-full"
+              className="contact w-full px-2"
               type="email"
               required
             />
@@ -94,14 +94,14 @@ function Contact({ pageInfo }: Props) {
           <input
             {...register("subject")}
             placeholder={language === "us" ? "Subject" : "Sujet"}
-            className="contact"
+            className="contact px-2"
             type="text"
             required
           />
           <textarea
             {...register("message")}
             placeholder="Message"
-            className="contact max-h-28"
+            className="contact max-h-28 px-2"
             required
           />
           <button
