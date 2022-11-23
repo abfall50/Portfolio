@@ -8,7 +8,6 @@ type Props = {
   fromLeft?: boolean;
   skill: Skill;
   background: boolean;
-  width: boolean;
 };
 
 function Skill({ skill, fromLeft, background }: Props) {
