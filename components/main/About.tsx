@@ -19,7 +19,7 @@ function About({ pageInfo }: Props) {
       transition={{ duration: 1.5 }}
       className="h-[99%] relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 mx-auto justify-evenly items-center"
     >
-      <h3 className="absolute top-20 pl-5 uppercase text-violet11/40 font-semibold tracking-[20px] text-base">
+      <h3 className="absolute top-20 pl-5 uppercase text-violet11/70 font-semibold tracking-[20px] text-base">
         {language === "us" ? "About" : "À propos"}
       </h3>
       <motion.div
@@ -37,8 +37,8 @@ function About({ pageInfo }: Props) {
           height={1080}
         />
       </motion.div>
-      <div className="text-violet12 space-y-10 px-0 md:px-10">
-        <h4 className="text-4xl font-semibold">Here is who I am</h4>
+      <div className="text-violet12 space-y-5 md:space-y-10 px-0 md:px-10">
+        <h4 className="text-4xl font-semibold">{ language === "us" ? "Here is who I am" : "Découvrez-moi"}</h4>
         <p className="text-sm lg:text-base">{pageInfo?.aboutMe}</p>
       </div>
     </motion.div>

@@ -33,7 +33,7 @@ function Contact({ pageInfo }: Props) {
       className='h-[99%] relative flex flex-col text-center md:text-left max-w-7xl px-10 md:px-10 mx-auto justify-evenly items-center md:flex-row"
     >'
     >
-      <h3 className="absolute top-20 pl-5 uppercase text-violet11/40 tracking-[20px] font-semibold text-base anima">
+      <h3 className="absolute top-20 pl-5 uppercase text-violet11/70 tracking-[20px] font-semibold text-base anima">
         Contact
       </h3>
 

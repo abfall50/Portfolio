@@ -20,7 +20,7 @@ function Projects({ projects }: Props) {
       transition={{ duration: 1.5 }}
       className="h-[99%] relative flex flex-col text-left max-w-full mx-auto justify-evenly items-center md:flex-row "
     >
-      <h3 className="absolute top-20 pl-5 uppercase text-violet11/40 tracking-[20px] font-semibold text-base ">
+      <h3 className="absolute top-20 pl-5 uppercase text-violet11/70 tracking-[20px] font-semibold text-base ">
         {language === "us" ? "Projects" : "Projets"}
       </h3>
 
