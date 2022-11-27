@@ -39,7 +39,7 @@ function About({ pageInfo }: Props) {
       </motion.div>
       <div className="text-violet12 space-y-5 md:space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">{ language === "us" ? "Here is who I am" : "Découvrez-moi"}</h4>
-        <p className="text-sm lg:text-base">{pageInfo?.aboutMe}</p>
+        <p className="text-xs lg:text-base">{pageInfo?.aboutMe}</p>
       </div>
     </motion.div>
   );

@@ -78,7 +78,7 @@ function Projects({ projects }: Props) {
                 })}
               </div>
 
-              <p className="text-[11px] text-center lg:text-sm">
+              <p className="text-xs text-center lg:text-base">
                 {project?.summary}
               </p>
             </div>
