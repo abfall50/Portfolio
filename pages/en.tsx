@@ -24,7 +24,13 @@ export default function Home_En({
     <CountryContext.Provider value={{ language: "us" }}>
       <div className="h-screen snap-y snap-mandatory bg-[url('../public/background.png')] bg-repeat overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-violet7/80 scrollbar-corner-gray-400/20">
         <Head>
-          <title>Abdoulaye's Portfolio</title>
+          <title>Abdoulaye Fall</title>
+          <meta charSet="UTF-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="icon" href="/logo.png" />
         </Head>
 
         <Header socials={socials} />
