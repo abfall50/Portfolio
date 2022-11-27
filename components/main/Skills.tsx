@@ -23,7 +23,7 @@ function Skills({ skills }: Props) {
 
       <div className="grid grid-cols-4 gap-5">
         {skills
-          ?.slice(0, Math.round(skills?.length / 2))
+          ?.slice(0, Math.round(skills?.length / 2) + 1)
           .map((skill, index) => {
             if (
               skill?.title === "Solidity" ||
@@ -49,7 +49,7 @@ function Skills({ skills }: Props) {
           })}
 
         {skills
-          .slice(Math.round(skills?.length / 2), skills?.length)
+          .slice(Math.round(skills?.length / 2) + 1, skills?.length)
           .map((skill, index) => {
             if (
               skill.title === "Solidity" ||
